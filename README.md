@@ -30,7 +30,7 @@ These are the platforms where we've been sucessful in compilling and using Ardui
 
 OS:
 
-Compiler:
+Compiler: Arduino 1.0.4
 
 
 While not yet tested on all platforms, this package will likely
