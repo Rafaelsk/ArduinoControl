@@ -1,19 +1,17 @@
-$Id: README,v 0.1 2013/19/05 09:39:27 wwg Exp $
+Arduino Project Version 0.1
+---------------------------
 
 
+Authors :
+------------------------------
+Mata Luis.
+Solorzano Rafael.
+Trujillo Marlon.
 
-===========================================================================
-=                    Arduino Project Version 0.1                          =
-===========================================================================
-=                      The Arduino Project                                = 
-= Authors (alphabetic order):                                             =
-=   Mata, Luis <>                                                         =
-=   Solorzano, Rafael <>                                                  =
-=   Trujillo, Marlon <marlontrujillo1080@gmail.com>                       =
 ===========================================================================
                  
 
-Arduino Project Features:
+Project Features:
 ------------------------
 
 Design Goals:
@@ -56,6 +54,3 @@ When reporing bugs please provide also:
 
 
 Thank-you for downloading and using Arduino Project.
-
-
-- End -
