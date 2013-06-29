@@ -1,46 +1,42 @@
-#define LDR   A0
-#define LM335 A1
+//22 de junio de 2013
+//Universidad de Oriente
+//Postgrado en Ingeniería Eléctrica
+//Especialización en Automatización e Informática Industrial
+//Cohorte XIII
+//Microprocesadores aplicados a Control
+//Prof. Alfonso Alfonsi
+//
+//Luis   Mata      16.171.889
+//Marlon Trujillo  18.278.778
+//Rafael Solorzano 16.478.353
+
+#include "LM335.h"
+#include "LDR.h"
 
 void setup()
 {
- Serial.begin(9600);
- pinMode(LDR, INPUT);
- pinMode(LM335, INPUT);
- digitalWrite(LDR, LOW); //disable internal pul-up resistor
- digitalWrite(LM335, LOW); //disable internal pul-up resistor 
+  Serial.begin(9600);
+  setupLM335();
+  setupLDR();
 }
 
 void loop()
 {
-  int vTemp, vLuz;
-  float temp, ldr, luz;
-  vTemp = analogRead(LM335);
-  vLuz = analogRead(LDR);
-  
-  Serial.print("Voltaje LM335: ");
-  Serial.print(vTemp);
-  
-  Serial.print(" Voltaje LDR: ");
-  Serial.println(vLuz);
-  
-  temp = (float)vTemp*(500.0/1023.0) - 273.0;
-  
-  Serial.print("Temperatura: ");
-  Serial.print(temp);
-  Serial.println(" Celsius");
-  
-  ldr = 6200.0*(float)vLuz/(float)(1023-vLuz);
-  
-  Serial.print("LDR: ");
-  Serial.print(ldr);
-  Serial.println(" Ohms");
+  Serial.println("     *****   LM335   *****     ");
+  readLM335(0, true);  //Lee conversion del ADC del valor del LM335 y envia por serial
+  readLM335('V', true);//Lee voltaje del LM335 y envia por serial
+  readLM335('K', true);//Lee temperatura en Kelvin y envia por serial
+  readLM335('C', true);//Lee temperatura en Celsius y envia por serial
+  readLM335('F', true);//Lee temperatura en Farenheit y envia por serial
+  Serial.println("");
 
-  luz = 620000/ldr;
-  
-  Serial.print("Luz: ");
-  Serial.print(luz);
-  Serial.println(" %");
+  Serial.println("     *****   LDR   *****     ");
+  readLDR(0, true);  //Lee conversion del ADC del voltaje sobre el LDR y envia por serial
+  readLDR('V', true);//Lee el voltaje sobre el LDR y envia por serial
+  readLDR('R', true);//Lee el valor del LDR y envia por serial
+  readLDR('L', true);//Lee el porcentaje de luz sobre el LDR y envia por serial
+  Serial.println("");
 
   delay(2000);
-  
+
 }
